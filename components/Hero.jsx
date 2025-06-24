@@ -3,7 +3,7 @@ import Link from "next/link";
 import React, { useEffect, useRef } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
-import banner from "../public/banner-2.jpg";
+import banner from "@/public/banner-2.jpg";
 
 function Hero() {
   const imageRef = useRef();
