@@ -78,16 +78,6 @@ export async function getUserOnboardingStatus() {
     throw new Error("User not authenticated");
   }
 
-  const user = await db.user.findUnique({
-    where: {
-      clerkUserId: userId,
-    },
-  });
-
-  if (!user) {
-    throw new Error("User not found");
-  }
-
   try {
     const user = await db.user.findUnique({
       where: {
@@ -98,8 +88,12 @@ export async function getUserOnboardingStatus() {
       },
     });
 
+    if (!user) {
+      throw new Error("User not found");
+    }
+
     return {
-      isOnboarded: !!user.industry, // true if industry is set
+      isOnboarded: !!user.industry,
     };
   } catch (error) {
     console.error("Error fetching user onboarding status:", error);
