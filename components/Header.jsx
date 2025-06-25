@@ -28,7 +28,6 @@ import {
 import { checkUser } from "@/lib/checkUser";
 
 async function Header() {
-
   await checkUser();
   // This function checks if the user is logged in and creates a new user in the database if they are not.
   // It is called here to ensure that the user is checked before rendering the header.
@@ -93,11 +92,8 @@ async function Header() {
           </SignedIn>
           <SignedOut>
             <SignInButton>
-              <Button
-                variant={"outline"}
-                className="flex cursor-pointer items-center"
-              >
-                <span className="hidden md:block">Sign In</span>
+              <Button variant={"outline"} className="px-4 py-2 text-sm font-medium bg-primary text-white rounded">
+                Sign In
               </Button>
             </SignInButton>
           </SignedOut>
@@ -109,8 +105,8 @@ async function Header() {
                   userButtonAvatarImage: "h-8 w-8 rounded-full",
                   userButtonPopoverCard: "w-48",
                 },
-                
               }}
+              afterSignOutUrl="/"
             />
           </SignedIn>
         </div>
