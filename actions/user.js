@@ -33,10 +33,16 @@ export async function updateUser(data) {
         // if not, create it with default values - will replace with AI later
         if (!industryInsight) {
           const insights = await generateAIInsights(data.industry);
+
+          const demandLevel = (insights.demandLevel || "").toUpperCase();
+          const marketOutlook = (insights.marketOutlook || "").toUpperCase();
+
           industryInsight = await db.industryInsight.create({
             data: {
               industry: data.industry,
               ...insights,
+              demandLevel,
+              marketOutlook,
               nextUpdate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000), // 1 week from now
             },
           });
