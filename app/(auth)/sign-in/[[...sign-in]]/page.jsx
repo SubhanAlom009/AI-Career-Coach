@@ -5,6 +5,7 @@ function page() {
   return (
     <div>
       <SignIn
+        forceRedirectUrl="/onboarding"
         appearance={{
           baseTheme: dark,
         }}

@@ -92,7 +92,7 @@ async function Header() {
           </SignedIn>
           <SignedOut>
             <SignInButton>
-              <Button variant={"outline"} className="px-4 py-2 text-sm font-medium bg-primary text-white rounded">
+              <Button variant={"outline"} className="px-4 cursor-pointer py-2 text-sm font-medium bg-primary text-white rounded">
                 Sign In
               </Button>
             </SignInButton>
