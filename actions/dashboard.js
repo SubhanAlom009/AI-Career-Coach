@@ -55,7 +55,7 @@ export async function getIndustryInsights() {
       clerkUserId: userId,
     },
     include: {
-      industryInsights: true,
+      industryInsight: true,
     },
   });
 
@@ -63,7 +63,7 @@ export async function getIndustryInsights() {
     throw new Error("User not found");
   }
   try {
-    if (!user.industryInsights) {
+    if (!user.industryInsight) {
       const insights = await generateAIInsights(user.industry);
       const industryInsight = await db.industryInsight.create({
         data: {
@@ -75,7 +75,7 @@ export async function getIndustryInsights() {
       return industryInsight;
     }
 
-    return user.industryInsights;
+    return user.industryInsight;
   } catch (error) {
     console.error("Detailed error in getIndustryInsights:", {
       message: error.message,
