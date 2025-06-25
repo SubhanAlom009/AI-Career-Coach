@@ -30,7 +30,7 @@ function Hero() {
   }, []);
 
   return (
-    <div className="pb-20 px-4">
+    <div className="py-20 px-4">
       <div className="mx-auto container text-center sm:mt-12">
         <h1 className="text-5xl md:text-8xl lg:text-[105px] gradient-title pb-6">
           Your AI Career Coach for <br /> Professional Success
